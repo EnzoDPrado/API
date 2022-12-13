@@ -20,7 +20,7 @@ const novaPizzaFavorito= async function (pizzaFavorito) {
     
     else {
         //import da model de sabor_bebida
-        const novaPizzaFavorito = require('../model/model_pizza_favorito.js');
+        const novaPizzaFavorito = require('../models/model_pizza_favorito.js');
 
         //Chama a funcao para inserir novo sabor de bebida
         const resultNovaPizzaFavorito = await novaPizzaFavorito.insertPizzaFavorito(pizzaFavorito);
@@ -49,7 +49,7 @@ const atualizarPizzaFavorito = async function (pizzaFavorito) {
     else
     {
         //import da model de sabor bebida
-        const atualizarPizzaFavorito = require('../model/model_pizza_favorito.js');
+        const atualizarPizzaFavorito = require('../models/model_pizza_favorito.js');
 
         //chama a funcao para atualizar um bebida
         const result = await atualizarPizzaFavorito.updatePizzaFavorito(pizzaFavorito);
@@ -74,7 +74,7 @@ const excluirPizzaFavorito = async function (id) {
         if (pizzaFavorito)
         {
             //import da model de sabor bebida
-            const excluirPizzaFavorito = require('../model/model_pizza_favorito.js');
+            const excluirPizzaFavorito = require('../models/model_pizza_favorito.js');
             //chama a funcao para atualizar um sabor bebida
             const result = await excluirPizzaFavorito.deletePizzaFavorito(id);
             
@@ -92,7 +92,7 @@ const excluirPizzaFavorito = async function (id) {
 const listarPizzasFavoritas = async function () {
     let dadosPizzasFavoritasJSON = {};
 
-    const { selectAllPizzasFavoritos} = require ('../model/model_pizza_favorito.js');
+    const { selectAllPizzasFavoritos} = require ('../models/model_pizza_favorito.js');
 
     const dadosPizzasFavoritas = await selectAllPizzasFavoritos();
 
@@ -118,7 +118,7 @@ const buscarPizzaFavorita = async function (id) {
         return {status: 400, message: MESSAGE_ERROR.REQUIRED_ID}
     else{
 
-        const { selectByIdPizzaFavorito } = require ('../model/model_pizza_favorito.js');
+        const { selectByIdPizzaFavorito } = require ('../models/model_pizza_favorito.js');
 
         const dadosPizzaFavorita = await selectByIdPizzaFavorito(id);
 

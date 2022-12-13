@@ -20,7 +20,7 @@ const novoSaborBebida = async function (saborBebida) {
     
     else {
         //import da model de sabor_bebida
-        const novoSaborBebida = require('../model/model_sabor_bebida.js');
+        const novoSaborBebida = require('../models/model_sabor_bebida.js');
 
         //Chama a funcao para inserir novo sabor de bebida
         const resultNovoSaborBebida = await novoSaborBebida.insertSaborBebida(saborBebida);
@@ -48,7 +48,7 @@ const atualizarSaborBebida = async function (saborBebida) {
     else
     {
         //import da model de sabor bebida
-        const atualizarSaborBebida = require('../model/model_sabor_bebida.js');
+        const atualizarSaborBebida = require('../models/model_sabor_bebida.js');
 
         //chama a funcao para atualizar um bebida
         const result = await atualizarSaborBebida.updateSaborBebida(saborBebida);
@@ -73,7 +73,7 @@ const excluirSaborBebida = async function (id) {
         if (saborBebida)
         {
             //import da model de sabor bebida
-            const excluirSaborBebida = require('../model/model_sabor_bebida.js');
+            const excluirSaborBebida = require('../models/model_sabor_bebida.js');
             //chama a funcao para atualizar um sabor bebida
             const result = await excluirSaborBebida.deleteSaborBebida(id);
             
@@ -91,7 +91,7 @@ const excluirSaborBebida = async function (id) {
 const listarSaboresBebidas = async function () {
     let dadosSaboresBebidasJSON = {};
 
-    const { selectAllSaboresBebidas } = require ('../model/model_sabor_bebida.js');
+    const { selectAllSaboresBebidas } = require ('../models/model_sabor_bebida.js');
 
     const dadosSaboresBebidas = await selectAllSaboresBebidas();
 
@@ -116,7 +116,7 @@ const buscarSaborBebida = async function (id) {
         return {status: 400, message: MESSAGE_ERROR.REQUIRED_ID}
     else{
 
-        const { selectByIdSaborBebida } = require ('../model/model_sabor_bebida.js');
+        const { selectByIdSaborBebida } = require ('../models/model_sabor_bebida.js');
 
         const dadosSaborBebida = await selectByIdSaborBebida(id);
 

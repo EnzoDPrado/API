@@ -22,7 +22,7 @@ const novaPizzaria = async function (pizzaria) {
         return { status: 400, message: MESSAGE_ERROR.INVALID_EMAIL };
     else {
         //import da model de pizzaria
-        const novaPizzaria = require('../model/model_pizzaria');
+        const novaPizzaria = require('../models/model_pizzaria');
 
         //Chama a funcao para inserir uma nova pizzaria
         const resultNovaPizzaria = await novaPizzaria.insertPizzaria(pizzaria);
@@ -53,7 +53,7 @@ const atualizarPizzaria = async function (pizzaria) {
         return { status: 400, message: MESSAGE_ERROR.INVALID_EMAIL };
     else {
         //import da model de pizzaria
-        const atualizarPizzaria = require('../model/model_pizzaria');
+        const atualizarPizzaria = require('../models/model_pizzaria');
 
         //chama a funcao para atualizar uma pizzaria
         const result = await atualizarPizzaria.updatePizzaria(pizzaria);
@@ -77,7 +77,7 @@ const excluirPizzaria = async function (id) {
         //Valida se foi encontrado um registro valido
         if (pizzaria) {
             //import da model de funcionario
-            const excluirPizzaria = require('../model/model_pizzaria');
+            const excluirPizzaria = require('../models/model_pizzaria');
             //chama a funcao para atualizar um funcionario
             const result = await excluirPizzaria.deletePizzaria(id);
 
@@ -95,7 +95,7 @@ const excluirPizzaria = async function (id) {
 const listarPizzarias = async function () {
     let dadosPizzariasJSON = {};
 
-    const { selectAllPizzarias } = require('../model/model_pizzaria');
+    const { selectAllPizzarias } = require('../models/model_pizzaria');
 
     const dadosPizzarias = await selectAllPizzarias();
 
@@ -119,7 +119,7 @@ const buscarPizzaria = async function (id) {
         return { status: 400, message: MESSAGE_ERROR.REQUIRED_ID }
     else {
 
-        const { selectByIdPizzaria } = require('../model/model_pizzaria');
+        const { selectByIdPizzaria } = require('../models/model_pizzaria');
 
         const dadosPizzaria = await selectByIdPizzaria(id);
 

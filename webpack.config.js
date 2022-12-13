@@ -10,6 +10,7 @@ if (dev) {
 }
 
 module.exports = {
+  optimization: { minimize: false },
   mode: env,
   devtool: dev ? 'eval-source-map' : 'none',
   externals: [nodeExternals()],

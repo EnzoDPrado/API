@@ -22,7 +22,7 @@ const novoContato = async function (contato) {
         return { status: 400, message: MESSAGE_ERROR.INVALID_EMAIL };
     else {
         //import da model de funcionario
-        const novoContato = require('../model/model_contato.js');
+        const novoContato = require('../models/model_contato.js');
 
         //Chama a funcao para inserir novo funcionario
         const resultNovoContato = await novoContato.insertContato(contato);
@@ -54,7 +54,7 @@ const atualizarContato = async function (contato) {
     else
     {
         //import da model de funcionario
-        const atualizarContato = require('../model/model_contato.js');
+        const atualizarContato = require('../models/model_contato.js');
 
         //chama a funcao para atualizar um funcionario
         const result = await atualizarContato.updateContato(contato);
@@ -79,7 +79,7 @@ const excluirContato = async function (id) {
         if (contato)
         {
             //import da model de funcionario
-            const excluirContato = require('../model/model_contato.js');
+            const excluirContato = require('../models/model_contato.js');
             //chama a funcao para atualizar um funcionario
             const result = await excluirContato.deleteContato(id);
             
@@ -97,7 +97,7 @@ const excluirContato = async function (id) {
 const listarContatos = async function () {
     let dadosContatosJSON = {};
 
-    const { selectAllContatos } = require ('../model/model_contato.js');
+    const { selectAllContatos } = require ('../models/model_contato.js');
 
     const dadosContatos = await selectAllContatos();
 
@@ -121,7 +121,7 @@ const buscarContato = async function (id) {
         return {status: 400, message: MESSAGE_ERROR.REQUIRED_ID}
     else{
 
-        const { selectByIdContato } = require ('../model/model_contato.js');
+        const { selectByIdContato } = require ('../models/model_contato.js');
 
         const dadosContato = await selectByIdContato(id);
 

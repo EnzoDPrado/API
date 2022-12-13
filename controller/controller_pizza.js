@@ -18,7 +18,7 @@ const novaPizza = async function (pizza) {
     }   
     else {
         //import da model de pizza
-        const novaPizza = require('../model/model_pizza.js');
+        const novaPizza = require('../models/model_pizza');
 
         //Chama a funcao para inserir nova Pizza
         const resultNovaPizza = await novaPizza.insertPizza(pizza);
@@ -46,7 +46,7 @@ const atualizarPizza = async function (pizza) {
     else
     {
         //import da model de pizza
-        const atualizarPizza = require('../model/model_pizza');
+        const atualizarPizza = require('../models/model_pizza');
 
         //chama a funcao para atualizar uma pizza
         const result = await atualizarPizza.updatePizza(pizza);
@@ -71,7 +71,7 @@ const excluirPizza = async function (id) {
         if (pizza)
         {
             //import da model de Pizza
-            const excluirPizza = require('../model/model_pizza');
+            const excluirPizza = require('../models/model_pizza');
             //chama a funcao para atualizar um funcionario
             const result = await excluirPizza.deletePizza(id);
             
@@ -89,7 +89,7 @@ const excluirPizza = async function (id) {
 const listarPizzas = async function () {
     let dadosPizzaJSON = {};
 
-    const { selectAllPizzas } = require ('../model/model_pizza');
+    const { selectAllPizzas } = require ('../models/model_pizza');
 
     const dadosPizzas = await selectAllPizzas();
 
@@ -113,7 +113,7 @@ const buscarPizza = async function (id) {
         return {status: 400, message: MESSAGE_ERROR.REQUIRED_ID}
     else{
 
-        const { selectByIdPizza } = require ('../model/model_pizza');
+        const { selectByIdPizza } = require ('../models/model_pizza');
 
         const dadosPizza = await selectByIdPizza(id);
 

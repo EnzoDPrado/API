@@ -20,7 +20,7 @@ const novaBebida = async function (bebida) {
     
     else {
         //import da model de sabor_bebida
-        const novaBebida = require('../model/model_bebida')
+        const novaBebida = require('../models/model_bebida')
 
         //Chama a funcao para inserir novo sabor de bebida
         const resultNovaBebida = await novaBebida.insertBebida(bebida);
@@ -49,7 +49,7 @@ const atualizarBebida = async function (bebida) {
     else
     {
         //import da model de sabor bebida
-        const atualizarBebida = require('../model/model_bebida.js');
+        const atualizarBebida = require('../models/model_bebida.js');
 
         //chama a funcao para atualizar um bebida
         const result = await atualizarBebida.updateBebida(bebida);
@@ -74,7 +74,7 @@ const excluirBebida = async function (id) {
         if (bebida)
         {
             //import da model de sabor bebida
-            const excluirBebida = require('../model/model_bebida.js');
+            const excluirBebida = require('../models/model_bebida.js');
             //chama a funcao para atualizar um sabor bebida
             const result = await excluirBebida.deleteBebida(id);
             
@@ -92,7 +92,7 @@ const excluirBebida = async function (id) {
 const listarBebidas = async function () {
     let dadosBebidasJSON = {};
 
-    const { selectBebidas } = require ('../model/model_bebida.js');
+    const { selectBebidas } = require ('../models/model_bebida.js');
 
     const dadosBebidas = await selectBebidas();
 
@@ -118,7 +118,7 @@ const buscarBebida = async function (id) {
         return {status: 400, message: MESSAGE_ERROR.REQUIRED_ID}
     else{
 
-        const { selectByIdBebida} = require ('../model/model_bebida.js');
+        const { selectByIdBebida} = require ('../models/model_bebida.js');
 
         const dadosBebida= await selectByIdBebida(id);
 

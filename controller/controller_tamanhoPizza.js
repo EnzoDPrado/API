@@ -18,7 +18,7 @@ const novoTamanhoPizza = async function (tamanhoPizza) {
     }    
     else {
         //import da model de tamanhoPizza
-        const novoTamanhoPizza = require('../model/model_tamanhoPizza.js');
+        const novoTamanhoPizza = require('../models/model_tamanhoPizza.js');
 
         //Chama a funcao para inserir novo tamanho
         const resultNovoTamanhoPizza = await novoTamanhoPizza.insertTamanhoPizza(tamanhoPizza);
@@ -46,7 +46,7 @@ const atualizarTamanhoPizza = async function (tamanhoPizza) {
     else
     {
         //import da model de tamanho
-        const atualizarTamanhoPizza = require('../model/model_tamanhoPizza.js');
+        const atualizarTamanhoPizza = require('../models/model_tamanhoPizza.js');
 
         //chama a funcao para atualizar um tamanho
         const result = await atualizarTamanhoPizza.updateTamanhoPizza(tamanhoPizza);
@@ -71,7 +71,7 @@ const excluirTamanhoPizza = async function (id) {
         if (tamanho)
         {
             //import da model de tamanho
-            const excluirTamanhoPizza = require('../model/model_tamanhoPizza.js');
+            const excluirTamanhoPizza = require('../models/model_tamanhoPizza.js');
             //chama a funcao para atualizar um tamanho
             const result = await excluirTamanhoPizza.deleteTamanhoPizza(id);
             
@@ -89,7 +89,7 @@ const excluirTamanhoPizza = async function (id) {
 const listarTamanhosPizza = async function () {
     let dadosTamanhosJSON = {};
 
-    const { selectAllTamanhoPizza } = require ('../model/model_tamanhoPizza.js');
+    const { selectAllTamanhoPizza } = require ('../models/model_tamanhoPizza.js');
 
     const dadosTamanhosPizza = await selectAllTamanhoPizza();
 
@@ -113,7 +113,7 @@ const buscarTamanhoPizza = async function (id) {
         return {status: 400, message: MESSAGE_ERROR.REQUIRED_ID}
     else{
 
-        const { selectByIdTamanhoPizza } = require ('../model/model_tamanhoPizza.js');
+        const { selectByIdTamanhoPizza } = require ('../models/model_tamanhoPizza.js');
 
         const dadosTamanho = await selectByIdTamanhoPizza(id);
 

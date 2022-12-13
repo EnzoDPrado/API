@@ -20,7 +20,7 @@ const novaBebidaPromocao= async function (bebidaPromocao) {
     
     else {
         //import da model de sabor_bebida
-        const novaBebidaPromocao = require('../model/model_promocao_bebida');
+        const novaBebidaPromocao = require('../models/model_promocao_bebida');
 
         //Chama a funcao para inserir novo sabor de bebida
         const resultNovabebidaPromocao = await novaBebidaPromocao.insertBebidaPromocao(bebidaPromocao);
@@ -49,7 +49,7 @@ const atualizarBebidaPromocao = async function (bebidaPromocao) {
     else
     {
         //import da model de sabor bebida
-        const atualizarBebidaPromocao = require('../model/model_promocao_bebida');
+        const atualizarBebidaPromocao = require('../models/model_promocao_bebida');
 
         //chama a funcao para atualizar um bebida
         const result = await atualizarBebidaPromocao.updateBebidaPromocao(bebidaPromocao);
@@ -74,7 +74,7 @@ const excluirBebidaPromocao  = async function (id) {
         if (bebidaPromocao)
         {
             //import da model de sabor bebida
-            const excluirBebidaPromocao = require('../model/model_promocao_bebida');
+            const excluirBebidaPromocao = require('../models/model_promocao_bebida');
             //chama a funcao para atualizar um sabor bebida
             const result = await excluirBebidaPromocao.deleteBebidaPromocao(id);
             
@@ -92,7 +92,7 @@ const excluirBebidaPromocao  = async function (id) {
 const listarBebidasPromocao = async function () {
     let dadosBebidasPromocaoJSON = {};
 
-    const { selectAllBebidasPromocoes} = require ('../model/model_promocao_bebida');
+    const { selectAllBebidasPromocoes} = require ('../models/model_promocao_bebida');
 
     const dadosBebidasPromocao= await selectAllBebidasPromocoes();
 
@@ -118,7 +118,7 @@ const buscarBebidaPromocao = async function (id) {
         return {status: 400, message: MESSAGE_ERROR.REQUIRED_ID}
     else{
 
-        const { selectByIdBebidaPromocao} = require ('../model/model_promocao_bebida');
+        const { selectByIdBebidaPromocao} = require ('../models/model_promocao_bebida');
 
         const dadosBebidaPromocao = await selectByIdBebidaPromocao(id);
 

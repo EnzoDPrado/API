@@ -2295,9 +2295,9 @@ app.delete('/v1/bebidaPromocao/:id', cors(), jsonParser, async function(request,
 
 
 
-// //Ativa o servidor para receber requisicoes HTTP
-// app.listen(5050, function () {
-//     console.log('Servidor aguardando requisicoes! :)');
-// });
+//Ativa o servidor para receber requisicoes HTTP
+app.listen(5050, function () {
+    console.log('Servidor aguardando requisicoes! :)');
+});
 
 module.exports = app

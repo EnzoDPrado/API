@@ -20,7 +20,7 @@ const novoTipoBebida = async function (tipoBebida) {
     
     else {
         //import da model de sabor_bebida
-        const novoTipoBebida = require('../model/model_tipo_bebida.js');
+        const novoTipoBebida = require('../models/model_tipo_bebida.js');
 
         //Chama a funcao para inserir novo sabor de bebida
         const resultNovoTipoBebida = await novoTipoBebida.insertTipoBebida(tipoBebida);
@@ -48,7 +48,7 @@ const atualizarTipoBebida = async function (tipoBebida) {
     else
     {
         //import da model de sabor bebida
-        const atualizarTipoBebida = require('../model/model_tipo_bebida.js');
+        const atualizarTipoBebida = require('../models/model_tipo_bebida.js');
 
         //chama a funcao para atualizar um bebida
         const result = await atualizarTipoBebida.updateTipoBebida(tipoBebida);
@@ -73,7 +73,7 @@ const excluirTipoBebida = async function (id) {
         if (tipoBebida)
         {
             //import da model de sabor bebida
-            const excluirTipoBebida = require('../model/model_tipo_bebida.js');
+            const excluirTipoBebida = require('../models/model_tipo_bebida.js');
             //chama a funcao para atualizar um sabor bebida
             const result = await excluirTipoBebida.deleteTipoBebida(id);
             
@@ -91,7 +91,7 @@ const excluirTipoBebida = async function (id) {
 const listarTiposBebidas = async function () {
     let dadosTiposBebidasJSON = {};
 
-    const { selectAllTiposBebidas } = require ('../model/model_tipo_bebida.js');
+    const { selectAllTiposBebidas } = require ('../models/model_tipo_bebida.js');
 
     const dadosTiposBebidas = await selectAllTiposBebidas();
 
@@ -116,7 +116,7 @@ const buscarTipoBebida = async function (id) {
         return {status: 400, message: MESSAGE_ERROR.REQUIRED_ID}
     else{
 
-        const { selectByIdTipoBebida } = require ('../model/model_tipo_bebida.js');
+        const { selectByIdTipoBebida } = require ('../models/model_tipo_bebida.js');
 
         const dadosTiposBebida = await selectByIdTipoBebida(id);
 

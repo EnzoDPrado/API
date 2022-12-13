@@ -20,7 +20,7 @@ const novaPizzaPromocao= async function (pizzaPromocao) {
     
     else {
         //import da model de sabor_bebida
-        const novaPizzaPromocao = require('../model/model_pizza_promocao.js');
+        const novaPizzaPromocao = require('../models/model_pizza_promocao.js');
 
         //Chama a funcao para inserir novo sabor de bebida
         const resultNovaPizzaPromocao = await novaPizzaPromocao.insertPizzaPromocao(pizzaPromocao);
@@ -49,7 +49,7 @@ const atualizarPizzaPromocao = async function (pizzaPromocao) {
     else
     {
         //import da model de sabor bebida
-        const atualizarPizzaPromocao = require('../model/model_pizza_promocao.js');
+        const atualizarPizzaPromocao = require('../models/model_pizza_promocao.js');
 
         //chama a funcao para atualizar um bebida
         const result = await atualizarPizzaPromocao.updatePizzaPromocao(pizzaPromocao);
@@ -74,7 +74,7 @@ const excluirPizzaPromocao  = async function (id) {
         if (pizzaPromocao)
         {
             //import da model de sabor bebida
-            const excluirPizzaPromocao = require('../model/model_pizza_promocao.js');
+            const excluirPizzaPromocao = require('../models/model_pizza_promocao.js');
             //chama a funcao para atualizar um sabor bebida
             const result = await excluirPizzaPromocao.deletePizzaPromocao(id);
             
@@ -92,7 +92,7 @@ const excluirPizzaPromocao  = async function (id) {
 const listarPizzasPromocao = async function () {
     let dadosPizzasPromocaoJSON = {};
 
-    const { selectAllPizzasPromocoes} = require ('../model/model_pizza_promocao.js');
+    const { selectAllPizzasPromocoes} = require ('../models/model_pizza_promocao.js');
 
     const dadosPizzasPromocao= await selectAllPizzasPromocoes();
 
@@ -118,7 +118,7 @@ const buscarPizzaPromocao = async function (id) {
         return {status: 400, message: MESSAGE_ERROR.REQUIRED_ID}
     else{
 
-        const { selectByIdPizzaPromocao} = require ('../model/model_pizza_promocao.js');
+        const { selectByIdPizzaPromocao} = require ('../models/model_pizza_promocao.js');
 
         const dadosPizzaPromocao = await selectByIdPizzaPromocao(id);
 

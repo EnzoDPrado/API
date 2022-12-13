@@ -18,7 +18,7 @@ const novoIngrediente = async function (ingrediente) {
     }   
     else {
         //import da model de pizza
-        const novoIngrediente = require('../model/model_ingredientes.js');
+        const novoIngrediente = require('../models/model_ingredientes.js');
 
         //Chama a funcao para inserir nova Pizza
         const resultNovoIngrediente = await novoIngrediente.insertIngrediente(ingrediente);
@@ -46,7 +46,7 @@ const atualizarIngrediente = async function (ingrediente) {
     else
     {
         //import da model de pizza
-        const atualizarIngrediente = require('../model/model_ingredientes.js');
+        const atualizarIngrediente = require('../models/model_ingredientes.js');
 
         //chama a funcao para atualizar uma pizza
         const result = await atualizarIngrediente.updateIngrediente(ingrediente);
@@ -71,7 +71,7 @@ const excluirIngrediente = async function (id) {
         if (ingrediente)
         {
             //import da model de Pizza
-            const excluirIngrediente = require('../model/model_ingredientes');
+            const excluirIngrediente = require('../models/model_ingredientes');
             //chama a funcao para atualizar um funcionario
             const result = await excluirIngrediente.deleteIngrediente(id);
             
@@ -89,7 +89,7 @@ const excluirIngrediente = async function (id) {
 const listarIngrediente = async function () {
     let dadosIngredienteJSON = {};
 
-    const { selectAllIngredientes } = require ('../model/model_ingredientes');
+    const { selectAllIngredientes } = require ('../models/model_ingredientes');
 
     const dadosIngredientes = await selectAllIngredientes();
 
@@ -113,7 +113,7 @@ const buscarIngrediente = async function (id) {
         return {status: 400, message: MESSAGE_ERROR.REQUIRED_ID}
     else{
 
-        const { selectByIdIngredientes } = require ('../model/model_ingredientes');
+        const { selectByIdIngredientes } = require ('../models/model_ingredientes');
 
         const dadosIngrediente = await selectByIdIngredientes(id);
 

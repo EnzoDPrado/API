@@ -23,7 +23,7 @@ const novoFuncionario = async function (funcionario) {
         return { status: 400, message: MESSAGE_ERROR.INVALID_EMAIL };
     else {
         //import da model de funcionario
-        const novoFuncionario = require('../model/model_funcionario');
+        const novoFuncionario = require('../models/model_funcionario');
 
         //Chama a funcao para inserir novo funcionario
         const resultNovoFuncionario = await novoFuncionario.insertFuncionario(funcionario);
@@ -54,7 +54,7 @@ const atualizarFuncionario = async function (funcionario) {
     else
     {
         //import da model de funcionario
-        const atualizarFuncionario = require('../model/model_funcionario');
+        const atualizarFuncionario = require('../models/model_funcionario');
 
         //chama a funcao para atualizar um funcionario
         const result = await atualizarFuncionario.updateFuncionario(funcionario);
@@ -79,7 +79,7 @@ const excluirFuncionario = async function (id) {
         if (funcionario)
         {
             //import da model de funcionario
-            const excluirFuncionario = require('../model/model_funcionario.js');
+            const excluirFuncionario = require('../models/model_funcionario.js');
             //chama a funcao para atualizar um funcionario
             const result = await excluirFuncionario.deleteFuncionario(id);
             
@@ -97,7 +97,7 @@ const excluirFuncionario = async function (id) {
 const listarFuncionarios = async function () {
     let dadosFuncionariosJSON = {};
 
-    const { selectAllFuncionarios } = require ('../model/model_funcionario.js');
+    const { selectAllFuncionarios } = require ('../models/model_funcionario.js');
 
     const dadosFuncionarios = await selectAllFuncionarios();
 
@@ -121,7 +121,7 @@ const buscarFuncionario = async function (id) {
         return {status: 400, message: MESSAGE_ERROR.REQUIRED_ID}
     else{
 
-        const { selectByIdFuncionario } = require ('../model/model_funcionario.js');
+        const { selectByIdFuncionario } = require ('../models/model_funcionario.js');
 
         const dadosFuncionario = await selectByIdFuncionario(id);
 
